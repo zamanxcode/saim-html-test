@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raw Fola - Artistic & Gothic Fashion</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('starry-night.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      min-height: 100vh;
+      padding-bottom: 50px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .navbar h1 {
+      color: #fff;
+      font-size: 36px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 50px;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      color: #f9f9f9;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    /* Product Section */
+    .product-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    .product {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      margin: 15px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(4px);
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    .product img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+
+    .product-name {
+      font-size: 22px;
+      margin: 10px 0;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .product-price {
+      font-size: 18px;
+      color: #90ee90;
+      margin-bottom: 10px;
+    }
+
+    .buy-button, .music-button {
+      background-color: #000;
+      color: #fff;
+      padding: 10px 15px;
+      margin: 10px 5px 15px 5px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .buy-button:hover, .music-button:hover {
+      background-color: #333;
+    }
+
+    /* Footer */
+    footer {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Music Controller */
+    .music-controller {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+
+    .music-controller:hover {
+      background-color: #3498db;
+    }
+
+    /* Media Queries */
+    @media screen and (max-width: 600px) {
+      .product {
+        width: 90%;
+      }
+
+      .hero h2 {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <!-- Navbar -->
+    <div class="navbar">
+      <h1>Raw Fola - Wear With Class</h1>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+      <h2>Welcome to Raw Fola</h2>
+      <p>Your ultimate destination for artistic & gothic fashion</p>
+    </div>
+
+    <!-- Product Section -->
+    <div class="product-container">
+      <!-- Product 1: Numb - Linkin Park -->
+      <div class="product">
+        <img src="numb-linkin-park.jpg" alt="Numb - Linkin Park T-Shirt">
+        <div class="product-name">Numb - Linkin Park</div>
+        <div class="product-price">৳ 450</div>
+        <button class="buy-button" onclick="alert('Thanks for buying Numb - Linkin Park T-Shirt!')">Buy Now</button>
+        <button class="music-button" onclick="toggleMusic('numb-audio')">Play Numb 🎵</button>
+        <audio id="numb-audio" src="numb.mp3"></audio>
+      </div>
+
+      <!-- Product 2: High Hopes - Pink Floyd -->
+      <div class="product">
+        <img src="high-hopes-pink-floyd.jpg" alt="High Hopes - Pink Floyd T-Shirt">
+        <div class="product-name">High Hopes - Pink Floyd</div>
+        <div class="product-price">৳ 500</div>
+        <button class="buy-button" onclick="alert('Thanks for buying High Hopes - Pink Floyd T-Shirt!')">Buy Now</button>
+        <button class="music-button" onclick="toggleMusic('hopes-audio')">Play High Hopes 🎵</button>
+        <audio id="hopes-audio" src="high-hopes.mp3"></audio>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>Contact: 01712790584</p>
+      <p>Email: rawfola6@gmail.com</p>
+      <p>Shop Location: Dhanmondi, Dhaka, Bangladesh</p>
+      <p>&copy; 2025 Raw Fola</p>
+    </footer>
+
+    <!-- Music Controller -->
+    <button class="music-controller"
+::contentReference[oaicite:0]{index=0}
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RawFola Website</title>
+    <!-- Font from local folder -->
+    <style>
+        @font-face {
+            font-family: 'Orbitron';
+            src: url('fonts/Orbitron-Regular.ttf') format('truetype');
+        }
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #111;
+            color: #eee;
+            text-align: center;
+        }
+        img {
+            max-width: 300px;
+            margin: 15px;
+            border-radius: 10px;
+        }
+        audio {
+            margin: 10px 0;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to RawFola Website</h1>
+
+    <h2>Images</h2>
+    <img src="t shirt heavy metal.jpg" alt="T Shirt Heavy Metal" />
+    <img src="pink floyed gashlight.jpg" alt="Pink Floyed Gashlight" />
+    <img src="starry-night.jpg" alt="Starry Night" />
+
+    <h2>Music</h2>
+    <audio controls>
+        <source src="numb.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+    </audio>
+    <audio controls>
+        <source src="high-hopes.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+    </audio>
+
+    <p>Check out the <a href="metal-history.html">Metal History</a> page</p>
+</body>
+</html>
