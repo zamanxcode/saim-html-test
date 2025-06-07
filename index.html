@@ -1,260 +1,362 @@
-<!DOCTYPE html>
-<html lang="bn">
+ <!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raw Fola - Artistic & Gothic Fashion</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Raw Fola - Wear With Class</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --primary: #1a1a2e;
+      --secondary: #0f3460;
+      --accent: #e94560;
+      --light: #f5f6fa;
+      --dark: #22223b;
     }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-image: url('starry-night.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: #fff;
-      overflow-x: hidden;
+      font-family: 'Montserrat', 'Orbitron', sans-serif;
+      background: linear-gradient(120deg, #232526 0%, #414345 100%);
+      color: var(--dark);
+      min-height: 100vh;
+      scroll-behavior: smooth;
     }
-
+    .particles {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 0; pointer-events: none;
+    }
+    .particle {
+      position: absolute;
+      background: rgba(233, 69, 96, 0.15);
+      border-radius: 50%;
+      animation: float 18s infinite linear;
+      filter: blur(1px);
+    }
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-1200px) scale(1.2); opacity: 0; }
+    }
     .overlay {
-      background-color: rgba(0, 0, 0, 0.7);
+      background: rgba(245,246,250,0.93);
       min-height: 100vh;
       padding-bottom: 50px;
+      position: relative;
+      z-index: 1;
     }
-
-    /* Navbar */
     .navbar {
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 20px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      padding: 18px 40px;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 10;
     }
-
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .navbar .logo i {
+      font-size: 32px;
+      color: var(--accent);
+    }
     .navbar h1 {
       color: #fff;
-      font-size: 36px;
-      text-transform: uppercase;
+      font-size: 32px;
       letter-spacing: 2px;
+      font-family: 'Orbitron', sans-serif;
+      text-shadow: 0 0 10px #e94560, 0 0 20px #0f3460;
     }
-
-    /* Hero Section */
+    .navbar nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 17px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .navbar nav a:hover {
+      color: var(--accent);
+    }
     .hero {
       text-align: center;
-      padding: 50px;
+      padding: 80px 20px 40px;
+      background: none;
     }
-
     .hero h2 {
-      font-size: 48px;
-      color: #f9f9f9;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      font-size: 54px;
+      color: var(--primary);
+      margin-bottom: 18px;
+      font-family: 'Orbitron', sans-serif;
+      text-shadow: 2px 2px 0 #e94560, 4px 4px 0 #0f3460;
     }
-
     .hero p {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+    .hero .cta-btn {
+      background: linear-gradient(45deg, var(--accent), var(--secondary));
+      color: #fff;
+      padding: 16px 36px;
+      border: none;
+      border-radius: 30px;
       font-size: 20px;
-      color: #ccc;
-      line-height: 1.6;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(233,69,96,0.15);
+      transition: background 0.3s, transform 0.2s;
     }
-
-    /* Product Section */
+    .hero .cta-btn:hover {
+      background: linear-gradient(45deg, var(--secondary), var(--accent));
+      transform: scale(1.07);
+    }
     .product-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 36px;
+      padding: 50px 40px 20px;
+      perspective: 1000px;
     }
-
     .product {
-      background-color: rgba(255, 255, 255, 0.1);
-      border: 1px solid #ccc;
-      border-radius: 12px;
-      margin: 15px;
-      width: 280px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(4px);
-      transition: transform 0.3s ease;
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+      transition: transform 0.4s, box-shadow 0.3s;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 18px;
     }
-
     .product:hover {
-      transform: scale(1.05);
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 20px 40px rgba(233,69,96,0.18);
     }
-
     .product img {
       width: 100%;
-      height: 250px;
+      height: 210px;
       object-fit: cover;
-      border-top-left-radius: 12px;
-      border-top-right-radius: 12px;
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+      transition: transform 0.4s;
     }
-
+    .product:hover img {
+      transform: scale(1.07);
+    }
     .product-name {
-      font-size: 22px;
-      margin: 10px 0;
-      color: #fff;
-      text-transform: uppercase;
+      font-size: 23px;
+      margin: 18px 0 5px;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 1px;
     }
-
     .product-price {
+      font-size: 20px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: bold;
+      background: rgba(233,69,96,0.08);
+      padding: 4px 18px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+    .buy-button,
+    .music-button {
+      background: linear-gradient(45deg, var(--accent), var(--secondary));
+      color: #fff;
+      padding: 12px 22px;
+      margin: 8px 6px 0 6px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.13);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .buy-button:hover,
+    .music-button:hover {
+      background: linear-gradient(45deg, var(--secondary), var(--accent));
+      transform: scale(1.08);
+    }
+    .music-button i {
       font-size: 18px;
-      color: #90ee90;
+    }
+    .metal-history {
+      padding: 50px 30px;
+      max-width: 1000px;
+      margin: 60px auto 0;
+      font-size: 20px;
+      line-height: 1.9;
+      background: #fff;
+      color: var(--dark);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.09);
+      transition: transform 0.4s;
+    }
+    .metal-history h2 {
+      color: var(--accent);
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 18px;
+      font-size: 32px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .metal-history:hover {
+      transform: translateY(-8px) scale(1.01);
+    }
+    footer {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: #fff;
+      padding: 28px 10px 10px;
+      text-align: center;
+      font-size: 16px;
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.13);
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+      margin-top: 60px;
+    }
+    .footer-social {
       margin-bottom: 10px;
     }
-
-    .buy-button, .music-button {
-      background-color: #000;
+    .footer-social a {
       color: #fff;
-      padding: 10px 15px;
-      margin: 10px 5px 15px 5px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
-      transition: background-color 0.3s ease;
+      margin: 0 10px;
+      font-size: 22px;
+      transition: color 0.2s;
     }
-
-    .buy-button:hover, .music-button:hover {
-      background-color: #333;
+    .footer-social a:hover {
+      color: var(--accent);
     }
-
-    /* Footer */
-    footer {
-      background-color: rgba(0, 0, 0, 0.8);
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-
-    /* Music Controller */
-    .music-controller {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #2980b9;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 18px;
-      transition: background-color 0.3s ease;
-    }
-
-    .music-controller:hover {
-      background-color: #3498db;
-    }
-
-    /* Media Queries */
-    @media screen and (max-width: 600px) {
-      .product {
-        width: 90%;
-      }
-
-      .hero h2 {
-        font-size: 36px;
-      }
+    @media screen and (max-width: 700px) {
+      .navbar { flex-direction: column; padding: 18px 10px; }
+      .navbar nav { margin-top: 10px; }
+      .hero h2 { font-size: 32px; }
+      .hero p { font-size: 18px; }
+      .product-container { padding: 30px 10px 10px; }
+      .metal-history { padding: 30px 10px; font-size: 17px; }
     }
   </style>
 </head>
 <body>
+  <!-- Floating Particles -->
+  <div class="particles" id="particles"></div>
+
   <div class="overlay">
-    <!-- Navbar -->
     <div class="navbar">
-      <h1>Raw Fola - Wear With Class</h1>
+      <div class="logo">
+        <i class="fa-solid fa-skull-crossbones"></i>
+        <h1>Raw Fola</h1>
+      </div>
+      <nav>
+        <a href="#products">Products</a>
+        <a href="#history">Metal History</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
 
-    <!-- Hero Section -->
     <div class="hero">
-      <h2>Welcome to Raw Fola</h2>
+      <h2>Wear With Class</h2>
       <p>Your ultimate destination for artistic & gothic fashion</p>
+      <button class="cta-btn" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+        Shop Now
+      </button>
     </div>
 
-    <!-- Product Section -->
-    <div class="product-container">
-      <!-- Product 1: Numb - Linkin Park -->
+    <div class="product-container" id="products">
       <div class="product">
-        <img src="numb-linkin-park.jpg" alt="Numb - Linkin Park T-Shirt">
-        <div class="product-name">Numb - Linkin Park</div>
-        <div class="product-price">৳ 450</div>
-        <button class="buy-button" onclick="alert('Thanks for buying Numb - Linkin Park T-Shirt!')">Buy Now</button>
-        <button class="music-button" onclick="toggleMusic('numb-audio')">Play Numb 🎵</button>
+        <img src="t-shirt-heavy-metal.jpg" alt="Heavy Metal T-Shirt" />
+        <div class="product-name">Heavy Metal T-Shirt</div>
+        <div class="product-price">৳ 350</div>
+        <button class="buy-button" onclick="alert('Thanks for buying Heavy Metal T-Shirt!')">
+          <i class="fa-solid fa-cart-shopping"></i> Buy Now
+        </button>
+        <button class="music-button" onclick="toggleMusic('numb-audio')">
+          <i class="fa-solid fa-play"></i> Play Numb
+        </button>
         <audio id="numb-audio" src="numb.mp3"></audio>
       </div>
-
-      <!-- Product 2: High Hopes - Pink Floyd -->
       <div class="product">
-        <img src="high-hopes-pink-floyd.jpg" alt="High Hopes - Pink Floyd T-Shirt">
-        <div class="product-name">High Hopes - Pink Floyd</div>
-        <div class="product-price">৳ 500</div>
-        <button class="buy-button" onclick="alert('Thanks for buying High Hopes - Pink Floyd T-Shirt!')">Buy Now</button>
-        <button class="music-button" onclick="toggleMusic('hopes-audio')">Play High Hopes 🎵</button>
+        <img src="pink-floyd-gashlight.jpg" alt="Asthetic Gashlight" />
+        <div class="product-name">Asthetic Gashlight</div>
+        <div class="product-price">৳ 80</div>
+        <button class="buy-button" onclick="alert('Thanks for buying Asthetic Gashlight!')">
+          <i class="fa-solid fa-cart-shopping"></i> Buy Now
+        </button>
+        <button class="music-button" onclick="toggleMusic('hopes-audio')">
+          <i class="fa-solid fa-play"></i> Play High Hopes
+        </button>
         <audio id="hopes-audio" src="high-hopes.mp3"></audio>
       </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-      <p>Contact: 01712790584</p>
-      <p>Email: rawfola6@gmail.com</p>
+    <div class="metal-history" id="history">
+      <h2>Bangladesh Heavy Metal History</h2>
+      <p>
+        Bangladesh e heavy metal music er utpotti 1980-er decade e, jakhon "Warfaze", "Rockstrata" o "In Dhaka" moto band gulo underground scene e rise korte thake. Ei shilpi ra desher traditional sangeet culture er biruddhe ekti natun rebellion niye ashchilo. Warfaze 1986-e tader formation diye metal scene ke mainstream e tulte thake. Erpor "Cryptic Fate", "Artcell", o "Aurthohin" metal ke notun dimension e niye jay. Artcell er album <b>Oniket Prantor</b> ke Bangladesh er progressive metal movement er milestone bola hoy. University campus, small gigs, ebong online community e metal er fan base barte thake. Er moddhe lyrics gula besh often philosophical o protest-based thake. Government restrictions, lack of sponsorship o stage er obhab thaka shotto heavy metal bangladeshi youth der moddhe ekta cult-er moto spread kore. Notun generation er bands gulo jemon "Trainwreck", "Bay of Bengal" o "Mechanix" ekhon international scene eo name tule niye jachhe. Metal ekhon sudhu ekta music genre na, ekta movement. Raw Fola ei journey r style ke celebrate kore nijer fashion er madhyome.
+      </p>
+    </div>
+
+    <footer id="contact">
+      <div class="footer-social">
+        <a href="https://facebook.com/rawfola" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="mailto:rawfola6@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="tel:01712790584" title="Phone"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://maps.app.goo.gl/yourshoplocation" target="_blank" title="Location"><i class="fa-solid fa-location-dot"></i></a>
+      </div>
+      <p>Contact: 01712790584 | Email: rawfola6@gmail.com</p>
       <p>Shop Location: Dhanmondi, Dhaka, Bangladesh</p>
       <p>&copy; 2025 Raw Fola</p>
     </footer>
+  </div>
 
-    <!-- Music Controller -->
-    <button class="music-controller"
-::contentReference[oaicite:0]{index=0}
- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RawFola Website</title>
-    <!-- Font from local folder -->
-    <style>
-        @font-face {
-            font-family: 'Orbitron';
-            src: url('fonts/Orbitron-Regular.ttf') format('truetype');
-        }
-        body {
-            font-family: 'Orbitron', sans-serif;
-            background-color: #111;
-            color: #eee;
-            text-align: center;
-        }
-        img {
-            max-width: 300px;
-            margin: 15px;
-            border-radius: 10px;
-        }
-        audio {
-            margin: 10px 0;
-            width: 300px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Welcome to RawFola Website</h1>
-
-    <h2>Images</h2>
-    <img src="t shirt heavy metal.jpg" alt="T Shirt Heavy Metal" />
-    <img src="pink floyed gashlight.jpg" alt="Pink Floyed Gashlight" />
-    <img src="starry-night.jpg" alt="Starry Night" />
-
-    <h2>Music</h2>
-    <audio controls>
-        <source src="numb.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-    </audio>
-    <audio controls>
-        <source src="high-hopes.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-    </audio>
-
-    <p>Check out the <a href="metal-history.html">Metal History</a> page</p>
+  <script>
+    let currentAudio = null;
+    function toggleMusic(id) {
+      const audio = document.getElementById(id);
+      if (currentAudio && currentAudio !== audio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+      if (audio.paused) {
+        audio.play();
+        currentAudio = audio;
+      } else {
+        audio.pause();
+      }
+    }
+    // Create floating particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 36;
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        const size = Math.random() * 16 + 8;
+        const posX = Math.random() * 100;
+        const delay = Math.random() * 18;
+        const duration = Math.random() * 12 + 16;
+        const posY = Math.random() * 100;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${posX}%`;
+        particle.style.top = `${posY}%`;
+        particle.style.animationDelay = `${delay}s`;
+        particle.style.animationDuration = `${duration}s`;
+        particlesContainer.appendChild(particle);
+      }
+    }
+    window.onload = createParticles;
+  </script>
 </body>
 </html>
